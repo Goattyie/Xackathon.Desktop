@@ -1,0 +1,21 @@
+﻿<Window x:Class="Xackathon.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Xackathon.WPF"
+        mc:Ignorable="d"
+        Title="{Binding CurrentPage.Title}" Height="419" Width="530"
+        DataContext="{Binding Source={StaticResource VMLocator}, Path=MainWindowViewModel}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="204*"/>
+        </Grid.RowDefinitions>
+        <Menu>
+            <MenuItem Header="Создать заявку" Command="{Binding ChangeOnCreateRequestPage}"/>
+            <MenuItem Header="Категории" Command="{Binding ChangeOnProblemCategoryPage}"/>
+        </Menu>
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Content="{Binding CurrentPage}"/>
+    </Grid>
+</Window>
